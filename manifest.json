@@ -46,9 +46,16 @@
     }
   ],
   "browser_specific_settings": {
-    "gecko": {
-      "id": "steam-ggdeals-panel@fedorowicz.dev",
-      "strict_min_version": "109.0"
+  "gecko": {
+    "id": "steam-ggdeals-panel@fedorowicz.dev",
+    "strict_min_version": "140.0",
+    "data_collection_permissions": {
+      "required": [
+        "authenticationInfo",
+        "browsingActivity",
+        "locationInfo"
+      ]
     }
   }
+}
 }
