@@ -1,0 +1,54 @@
+{
+  "manifest_version": 2,
+  "name": "Steam GG.deals price panel",
+  "version": "1.0.0",
+  "description": "Adds a price panel to Steam store pages, showing prices from GG.deals.",
+  "author": "Krzysztof Fedorowicz <krzysztof@fedorowicz.email>",
+  "homepage_url": "https://fedorowicz.dev/",
+  "icons": {
+    "48": "icons/icon48.png",
+    "96": "icons/icon96.png"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "https://store.steampowered.com/*",
+    "https://api.gg.deals/*"
+  ],
+  "background": {
+    "scripts": [
+      "src/background.js"
+    ]
+  },
+  "browser_action": {
+    "default_title": "Steam GG.deals price panel",
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "48": "icons/icon48.png",
+      "96": "icons/icon96.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://store.steampowered.com/app/*",
+        "https://store.steampowered.com/agecheck/app/*"
+      ],
+      "js": [
+        "src/i18n.js",
+        "src/custom-messages.js",
+        "src/content.js"
+      ],
+      "css": [
+        "src/content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "steam-ggdeals-panel@fedorowicz.dev",
+      "strict_min_version": "109.0"
+    }
+  }
+}

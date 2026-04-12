@@ -1,0 +1,94 @@
+
+## `LICENSE`
+
+```text
+Custom Source-Available License
+
+Copyright (c) Krzysztof Fedorowicz.
+All rights reserved.
+
+1. Grant of Permission
+
+Permission is granted to any person obtaining a copy of this software and its associated files
+(the "Software") to use, download, and share the Software in its original, unmodified form
+for personal and non-commercial purposes only, subject to the conditions below.
+
+2. Permitted Uses
+
+You may:
+
+- use the Software for personal and non-commercial purposes
+- copy and share the original, unmodified Software for personal and non-commercial purposes
+- publish references to the project, including links to the original repository or official distribution page
+
+3. Restrictions
+
+Without prior written permission from the copyright holder, you may not:
+
+- modify, adapt, translate, transform, reverse engineer for redistribution, or create derivative works based on the Software and redistribute them
+- distribute modified versions of the Software
+- sell, sublicense, rent, lease, or commercially distribute the Software
+- use the Software, or any modified version of it, for commercial purposes
+- package or include the Software in any paid product, bundle, service, or offering
+- publish forks, altered builds, or derivative versions of the Software
+- remove, alter, or obscure copyright, attribution, authorship, disclaimer, or license notices
+- use the author’s name, website, identity, project name, or branding in a way that suggests endorsement, partnership, or official status
+
+4. Third-Party Services and Content
+
+This Software may interact with third-party websites, APIs, trademarks, services, and content,
+including but not limited to Steam, Valve, and GG.deals.
+
+No rights, title, or interest in any third-party trademarks, assets, services, APIs, data, or content
+are granted under this license.
+
+All such names and references remain the property of their respective owners and are used only
+for descriptive, informational, and compatibility purposes.
+
+5. No Affiliation
+
+This Software is an independent third-party project and is not affiliated with, endorsed by,
+sponsored by, or associated with Valve, Steam, GG.deals, or any other third party unless explicitly stated in writing by the author.
+
+6. User Responsibility
+
+Users are solely responsible for ensuring that their use of the Software complies with all applicable laws,
+platform rules, API terms, service terms, and third-party policies.
+
+Users are solely responsible for obtaining and using their own API credentials where required.
+
+7. Warranty Disclaimer
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+TITLE, AND NON-INFRINGEMENT.
+
+8. Limitation of Liability
+
+IN NO EVENT SHALL THE AUTHOR OR COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH
+THE SOFTWARE OR THE USE OF OR OTHER DEALINGS IN THE SOFTWARE.
+
+THIS INCLUDES, WITHOUT LIMITATION, ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES,
+LOSS OF DATA, LOSS OF PROFITS, SERVICE INTERRUPTION, ACCOUNT LIMITATIONS, API FAILURES, RATE-LIMIT ISSUES,
+OR THIRD-PARTY CLAIMS.
+
+9. Termination
+
+Any violation of this license automatically terminates the rights granted under it.
+
+Upon termination, you must cease all use and distribution of the Software and destroy all copies in your possession,
+except where retention is required by law.
+
+10. Requests for Additional Permission
+
+For commercial licensing, redistribution permissions, or any use not expressly permitted by this license,
+contact:
+
+Krzysztof Fedorowicz
+krzysztof@fedorowicz.email
+https://fedorowicz.dev/
+
+11. Entire Agreement
+
+This license constitutes the entire agreement governing use of the Software unless otherwise agreed in writing by the author.

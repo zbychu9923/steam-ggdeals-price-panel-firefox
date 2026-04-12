@@ -1,0 +1,212 @@
+:root {
+  --ggd-bg-top: #101822;
+  --ggd-bg-bottom: #0b141d;
+  --ggd-panel-line: rgba(103, 193, 245, 0.16);
+  --ggd-panel-line-strong: rgba(117, 176, 34, 0.55);
+  --ggd-separator: rgba(255, 255, 255, 0.07);
+  --ggd-card-bg: rgba( 103, 193, 245, 0.1 );
+  --ggd-card-hover: linear-gradient(135deg, #67c1f5 0%,#417a9b 100%);
+  --ggd-text: #c6d4df;
+  --ggd-text-soft: #8f98a0;
+  --ggd-title: #ffffff;
+  --ggd-link: #66c0f4;
+  --ggd-green: #75b022;
+  --ggd-warn: #e1c48a;
+  --ggd-error: #ff8b8b;
+}
+
+html, body, #ggd-steam-price-panel, #ggd-steam-price-panel * {
+  font-family: "Motiva Sans", Sans-serif;
+}
+
+#ggd-steam-price-panel.ggd-panel {
+  margin: 0 0 12px;
+  position: relative;
+  background: -webkit-linear-gradient( 0deg, rgba(0,0,0,0.5) 5%,rgba(0,0,0,0.65) 95%);
+}
+
+#ggd-steam-price-panel.ggd-panel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(103, 193, 245, 0.55), var(--ggd-panel-line-strong));
+}
+
+#ggd-steam-price-panel.ggd-panel::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.04);
+}
+
+.ggd-panel__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 12px 10px;
+}
+
+.ggd-panel__headline-wrap {
+  min-width: 0;
+}
+
+.ggd-panel__eyebrow {
+  color: #7a8b9d;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+}
+
+.ggd-panel__title {
+  margin-top: 2px;
+  color: var(--ggd-title);
+  font-size: 20px;
+  line-height: 1.1;
+  font-weight: 300;
+}
+
+.ggd-panel__status {
+  margin-top: 1px;
+  flex-shrink: 0;
+  padding: 3px 7px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ggd-text-soft);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.ggd-panel__status[data-mode="ok"] {
+  color: #f3fbee;
+  background: linear-gradient(to right, rgba(117, 176, 34, 0.9) 5%, rgba(88, 138, 27, 0.9) 95%);
+}
+
+.ggd-panel__status[data-mode="warn"] {
+  color: #f0d39d;
+  background: rgba(225, 196, 138, 0.14);
+}
+
+.ggd-panel__status[data-mode="error"] {
+  color: #ffd0d0;
+  background: rgba(255, 139, 139, 0.14);
+}
+
+.ggd-panel__body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding: 0 12px 10px;
+}
+
+.ggd-price-card {
+  display: block;
+  min-width: 0;
+  padding: 10px 11px 10px;
+  text-decoration: none;
+  background: var(--ggd-card-bg);
+  border-radius: 1px;
+}
+
+.ggd-price-card:hover {
+  background: var(--ggd-card-hover);
+}
+
+.ggd-price-card:hover .ggd-price-card__label,
+.ggd-price-card:hover .ggd-price-card__value,
+.ggd-price-card:hover .ggd-price-card__hint {
+  color: #ffffff;
+}
+
+.ggd-price-card[data-disabled="true"] {
+  pointer-events: none;
+}
+
+.ggd-price-card:focus-visible {
+  outline: 1px solid rgba(102,192,244,0.6);
+  outline-offset: 1px;
+}
+
+.ggd-price-card__label {
+  color: #66c0f4;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.ggd-price-card__value {
+  margin-top: 7px;
+  color: #66c0f4;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.05;
+  word-break: break-word;
+}
+
+.ggd-price-card__hint {
+  margin-top: 7px;
+  color: #66c0f4;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.ggd-panel__note {
+  margin: 0 12px 10px;
+  padding: 9px 10px;
+  background: rgba(0, 0, 0, 0.18);
+  color: var(--ggd-text);
+  font-size: 11px;
+  line-height: 1.4;
+  box-shadow: inset 2px 0 0 rgba(102,192,244,0.55);
+}
+
+.ggd-panel__note[data-mode="warn"] {
+  box-shadow: inset 2px 0 0 rgba(225,196,138,0.8);
+}
+
+.ggd-panel__note[data-mode="error"] {
+  box-shadow: inset 2px 0 0 rgba(255,139,139,0.85);
+}
+
+.ggd-panel__footer {
+  padding: 0 12px 0;
+}
+
+
+@media (max-width: 520px) {
+  .ggd-panel__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ggd-panel__body {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.ggd-panel__footer hr {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 0;
+}
+
+.ggd-panel__custom {
+  display: block;
+}
+
+.ggd-panel__custom-text {
+  padding: 10px 12px 12px;
+  color: var(--ggd-text);
+  font-size: 12px;
+  line-height: 1.45;
+  text-align: center;
+}

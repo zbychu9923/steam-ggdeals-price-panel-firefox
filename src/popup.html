@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steam x GG.deals popup panel</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="popup">
+    <div class="popup__head">
+      <div class="popup__eyebrow" data-i18n="popupEyebrow"></div>
+      <div class="popup__title" data-i18n="popupTitle"></div>
+      <div class="popup__text" data-i18n="popupText"></div>
+    </div>
+
+    <form id="settings-form" class="popup__form">
+      <label class="field">
+        <span data-i18n="apiKeyLabel"></span>
+        <input id="apiKey" name="apiKey" type="password" autocomplete="off" data-i18n-placeholder="apiKeyPlaceholder">
+      </label>
+
+      <label class="field">
+        <span data-i18n="currencyLabel"></span>
+        <select id="region" name="region"></select>
+        <small class="field__hint" data-i18n="currencyHelp"></small>
+      </label>
+
+      <label class="field">
+        <span data-i18n="languageLabel"></span>
+        <select id="language" name="language">
+          <option value="pl" data-i18n="languagePolish"></option>
+          <option value="en" data-i18n="languageEnglish"></option>
+        </select>
+      </label>
+
+      <div class="actions">
+        <button type="submit" class="btn btn--primary" data-i18n="saveButton"></button>
+        <button type="button" id="clear-btn" class="btn btn--secondary" data-i18n="clearButton"></button>
+      </div>
+
+      <p id="status" class="status" hidden></p>
+    </form>
+  </main>
+
+  <script src="i18n.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
