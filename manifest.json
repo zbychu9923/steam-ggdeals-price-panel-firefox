@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Steam GG.deals price panel",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "Adds a price panel to Steam store pages, showing prices from GG.deals.",
   "author": "Krzysztof Fedorowicz <krzysztof@fedorowicz.email>",
   "homepage_url": "https://fedorowicz.dev/",
