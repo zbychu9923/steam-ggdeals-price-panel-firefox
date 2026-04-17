@@ -51,5 +51,8 @@
   "regionNO": "Norway",
   "regionPL": "Poland",
   "regionSE": "Sweden",
-  "regionUS": "United States"
+  "regionUS": "United States",
+  "showKeyshopsLabel": "Show keyshop prices",
+  "showKeyshopsHelp": "Turn this off if you only want to see official store prices in the Steam sidebar.",
+  "developersThanks": "Thank you for supporting developers! 🏆"
 }

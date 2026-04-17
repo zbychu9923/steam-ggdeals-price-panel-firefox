@@ -51,5 +51,8 @@
   "regionNO": "Norwegia",
   "regionPL": "Polska",
   "regionSE": "Szwecja",
-  "regionUS": "Stany Zjednoczone"
+  "regionUS": "Stany Zjednoczone",
+  "showKeyshopsLabel": "Pokazuj ceny z keyshopów",
+  "showKeyshopsHelp": "Wyłącz tę opcję, jeśli chcesz widzieć w bocznym panelu Steam tylko ceny z oficjalnych sklepów.",
+  "developersThanks": "Dziękuję, że wspierasz developerów! 🏆"
 }

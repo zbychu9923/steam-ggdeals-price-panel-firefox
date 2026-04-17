@@ -103,10 +103,11 @@
       return {
         apiKey: String(settings.apiKey || '').trim(),
         region: normalizeRegion(settings.region || DEFAULT_REGION),
-        language: normalizeLanguage(settings.language || state.language || DEFAULT_LANG)
+        language: normalizeLanguage(settings.language || state.language || DEFAULT_LANG),
+        showKeyshops: settings.showKeyshops !== false
       };
     } catch {
-      return { apiKey: '', region: DEFAULT_REGION, language: state.language || DEFAULT_LANG };
+      return { apiKey: '', region: DEFAULT_REGION, language: state.language || DEFAULT_LANG, showKeyshops: true };
     }
   }
 
@@ -242,6 +243,15 @@
     el.dataset.mode = mode;
   }
 
+  function setKeyshopsVisibility(panel, isVisible) {
+    const card = panel.querySelector('[data-role="keyshopLink"]');
+    const body = panel.querySelector('.ggd-panel__body');
+    if (!card || !body) return;
+
+    card.hidden = !isVisible;
+    body.dataset.keyshopsVisible = isVisible ? 'true' : 'false';
+  }
+
   function setCustomMessage(panel, text = '') {
     const footer = panel.querySelector('[data-role="footer"]');
     const wrap = panel.querySelector('[data-role="customWrap"]');
@@ -332,7 +342,8 @@
     setNote(panel, '');
     setCustomMessage(panel, getCustomMessage(appId));
 
-    const { apiKey, region } = await getSettings();
+    const { apiKey, region, showKeyshops } = await getSettings();
+    setKeyshopsVisibility(panel, showKeyshops);
     if (!apiKey) {
       setStatus(panel, t(state.messages, 'panelStatusNoData'), 'warn');
       setCard(panel, 'official', '—', t(state.messages, 'noteMissingApiKey'));

@@ -108,6 +108,11 @@ html, body, #ggd-steam-price-panel, #ggd-steam-price-panel * {
   padding: 0 12px 10px;
 }
 
+
+.ggd-panel__body[data-keyshops-visible="false"] {
+  grid-template-columns: 1fr;
+}
+
 .ggd-price-card {
   display: block;
   min-width: 0;
@@ -209,4 +214,8 @@ html, body, #ggd-steam-price-panel, #ggd-steam-price-panel * {
   font-size: 12px;
   line-height: 1.45;
   text-align: center;
+}
+
+#ggd-steam-price-panel [hidden] {
+  display: none !important;
 }

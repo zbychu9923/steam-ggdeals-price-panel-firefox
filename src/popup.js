@@ -16,15 +16,40 @@
   const regionInput = document.getElementById('region');
   const languageInput = document.getElementById('language');
   const clearButton = document.getElementById('clear-btn');
+  const showKeyshopsInput = document.getElementById('showKeyshops');
   const statusEl = document.getElementById('status');
+  const thanksEl = document.getElementById('developer-thanks');
+
+  let thanksTimer = null;
 
   let messages = {};
   let currentLanguage = DEFAULT_LANG;
+  let previousShowKeyshops = true;
 
   function setStatus(text, mode = 'ok') {
     statusEl.hidden = !text;
     statusEl.textContent = text || '';
     statusEl.dataset.mode = mode;
+  }
+
+  function hideThanksMessage() {
+    if (thanksTimer) {
+      clearTimeout(thanksTimer);
+      thanksTimer = null;
+    }
+    thanksEl.classList.remove('is-visible');
+  }
+
+  function showThanksMessage() {
+    thanksEl.textContent = t(messages, 'developersThanks');
+    thanksEl.classList.add('is-visible');
+    if (thanksTimer) {
+      clearTimeout(thanksTimer);
+    }
+    thanksTimer = setTimeout(() => {
+      thanksEl.classList.remove('is-visible');
+      thanksTimer = null;
+    }, 5000);
   }
 
   function renderRegionOptions() {
@@ -65,17 +90,21 @@
       apiKeyInput.value = settings.apiKey || '';
       regionInput.value = normalizeRegion(settings.region || 'pl');
       languageInput.value = normalizeLanguage(settings.language || currentLanguage);
+      showKeyshopsInput.checked = settings.showKeyshops !== false;
+      previousShowKeyshops = showKeyshopsInput.checked;
+      hideThanksMessage();
     } catch {
       setStatus(t(messages, 'statusLoadError'), 'error');
     }
   }
 
-  async function saveSettings(apiKey, region, language) {
+  async function saveSettings(apiKey, region, language, showKeyshops) {
     await browser.storage.local.set({
       [SETTINGS_KEY]: {
         apiKey,
         region,
-        language
+        language,
+        showKeyshops
       }
     });
   }
@@ -84,6 +113,9 @@
     const nextLanguage = normalizeLanguage(languageInput.value);
     await setLanguage(nextLanguage);
     setStatus('');
+    if (thanksEl.classList.contains('is-visible')) {
+      thanksEl.textContent = t(messages, 'developersThanks');
+    }
   });
 
   form.addEventListener('submit', async (event) => {
@@ -91,10 +123,18 @@
     const apiKey = apiKeyInput.value.trim();
     const region = normalizeRegion(regionInput.value);
     const language = normalizeLanguage(languageInput.value);
+    const showKeyshops = showKeyshopsInput.checked;
 
     try {
-      await saveSettings(apiKey, region, language);
+      await saveSettings(apiKey, region, language, showKeyshops);
       setStatus(t(messages, 'statusSaved'), 'ok');
+      const shouldShowThanks = previousShowKeyshops && !showKeyshops;
+      previousShowKeyshops = showKeyshops;
+      if (shouldShowThanks) {
+        showThanksMessage();
+      } else {
+        hideThanksMessage();
+      }
     } catch {
       setStatus(t(messages, 'statusSaveError'), 'error');
     }
@@ -105,7 +145,10 @@
     try {
       const result = await browser.storage.local.get(SETTINGS_KEY);
       const settings = result?.[SETTINGS_KEY] || {};
-      await saveSettings('', normalizeRegion(settings.region || 'pl'), normalizeLanguage(settings.language || currentLanguage));
+      const currentShowKeyshops = settings.showKeyshops !== false;
+      await saveSettings('', normalizeRegion(settings.region || 'pl'), normalizeLanguage(settings.language || currentLanguage), currentShowKeyshops);
+      previousShowKeyshops = currentShowKeyshops;
+      hideThanksMessage();
       setStatus(t(messages, 'statusCleared'), 'ok');
     } catch {
       setStatus(t(messages, 'statusClearError'), 'error');
